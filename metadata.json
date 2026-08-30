@@ -1,0 +1,8 @@
+{
+  "name": "RAPPOR - Eğitim Yönetim Platformu",
+  "description": "RAPPOR kapsamlı kurumsal eğitim, yönetim, sınav ve finans platformu arayüz ve tasarım sistemi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

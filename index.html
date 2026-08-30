@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>RAPPOR - Eğitim Yönetim Platformu</title>
+  <meta name="description" content="RAPPOR kapsamlı kurumsal eğitim, yönetim, sınav ve finans platformu arayüz ve tasarım sistemi."/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#f8f9fa",
+            "surface-dim": "#d9dadb",
+            "surface-container": "#edeeef",
+            "surface-container-low": "#f3f4f5",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-high": "#e7e8e9",
+            "primary": "#000a1e",
+            "primary-container": "#002147",
+            "secondary": "#115cb9",
+            "secondary-container": "#659dfe",
+            "tertiary": "#002722",
+            "tertiary-fixed": "#79f7e3",
+            "accent-teal": "#00a896",
+            "on-surface": "#191c1d",
+            "on-surface-variant": "#44474e",
+            "outline": "#74777f",
+            "outline-variant": "#c4c6cf"
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8f9fa;
+      color: #191c1d;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+    .rappor-shadow {
+      box-shadow: 0 4px 20px rgba(0, 33, 71, 0.08);
+    }
+    .rappor-shadow-hover:hover {
+      box-shadow: 0 8px 30px rgba(0, 33, 71, 0.14);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased bg-surface">
+
+  <!-- Top Institutional Bar -->
+  <header class="bg-primary text-white border-b border-primary-container sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo & Branding -->
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-lg bg-[#002147] border border-[#79f7e3]/30 flex items-center justify-center text-[#79f7e3] font-bold text-xl tracking-wider">
+            R
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="font-extrabold text-xl tracking-tight text-white">RAPPOR</span>
+              <span class="text-xs px-2 py-0.5 rounded-full bg-secondary/30 text-primary-fixed border border-secondary/40 font-semibold uppercase tracking-wider">Eğitim Sistemi</span>
+            </div>
+            <p class="text-xs text-gray-300 hidden sm:block">Kurumsal Eğitim & Yönetim Platformu</p>
+          </div>
+        </div>
+
+        <!-- Right Quick Actions -->
+        <div class="flex items-center space-x-3">
+          <button onclick="toggleDesignModal()" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-md bg-white/10 hover:bg-white/15 text-xs font-semibold text-gray-200 border border-white/10 transition-colors">
+            <span class="material-symbols-outlined text-sm text-[#79f7e3]">palette</span>
+            <span>Tasarım Sistemi</span>
+          </button>
+          <a href="/genel_y_netim_paneli_rappor/code.html" class="flex items-center space-x-1.5 px-3.5 py-1.5 rounded-md bg-secondary hover:bg-secondary/90 text-xs font-bold text-white transition-colors">
+            <span class="material-symbols-outlined text-sm">dashboard</span>
+            <span>Yönetim Paneline Git</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero & Overview Header -->
+  <section class="bg-primary-container text-white py-8 px-4 sm:px-6 lg:px-8 border-b border-primary">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div>
+          <div class="flex items-center space-x-2 text-[#79f7e3] text-sm font-medium mb-1">
+            <span class="material-symbols-outlined text-base">verified</span>
+            <span>RAPPOR Design & Interface Hub</span>
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">Tüm Ekran ve Modül Kataloğu</h1>
+          <p class="text-gray-300 text-sm mt-1 max-w-2xl">
+            18 aktif ekran: Yönetim, Öğretmen, Öğrenci, Veli, Ölçme-Değerlendirme ve Finans arayüzleri.
+          </p>
+        </div>
+
+        <!-- View Switcher -->
+        <div class="flex items-center bg-primary p-1 rounded-lg border border-white/10 self-start md:self-auto">
+          <button id="btn-grid-view" onclick="setViewMode('grid')" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-md text-xs font-semibold bg-[#115cb9] text-white transition-all">
+            <span class="material-symbols-outlined text-sm">grid_view</span>
+            <span>Modül Kartları</span>
+          </button>
+          <button id="btn-live-view" onclick="setViewMode('live')" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-md text-xs font-semibold text-gray-300 hover:text-white transition-all">
+            <span class="material-symbols-outlined text-sm">devices</span>
+            <span>Canlı Önizleyici</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Search & Filters -->
+      <div class="mt-6 flex flex-col sm:flex-row items-center gap-3">
+        <!-- Search Input -->
+        <div class="relative w-full sm:w-80">
+          <span class="material-symbols-outlined absolute left-3 top-2.5 text-gray-400 text-lg">search</span>
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Ekran, modül veya rol ara..." 
+            oninput="filterScreens()"
+            class="w-full pl-10 pr-4 py-2 bg-primary/80 border border-white/20 rounded-md text-sm text-white placeholder-gray-400 focus:outline-none focus:border-[#79f7e3]"
+          />
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div class="flex items-center gap-2 overflow-x-auto w-full pb-2 sm:pb-0" id="category-pills">
+          <button onclick="filterCategory('all')" class="cat-pill active px-3 py-1.5 rounded-full text-xs font-semibold bg-[#79f7e3] text-primary whitespace-nowrap transition-colors">Tümü (18)</button>
+          <button onclick="filterCategory('Yönetim & İdare')" class="cat-pill px-3 py-1.5 rounded-full text-xs font-semibold bg-white/10 text-gray-200 hover:bg-white/20 whitespace-nowrap transition-colors">Yönetim & İdare (4)</button>
+          <button onclick="filterCategory('Akademik & Müfredat')" class="cat-pill px-3 py-1.5 rounded-full text-xs font-semibold bg-white/10 text-gray-200 hover:bg-white/20 whitespace-nowrap transition-colors">Akademik (2)</button>
+          <button onclick="filterCategory('Ölçme & Değerlendirme')" class="cat-pill px-3 py-1.5 rounded-full text-xs font-semibold bg-white/10 text-gray-200 hover:bg-white/20 whitespace-nowrap transition-colors">Sınav & Quiz (3)</button>
+          <button onclick="filterCategory('Öğretmen Paneli')" class="cat-pill px-3 py-1.5 rounded-full text-xs font-semibold bg-white/10 text-gray-200 hover:bg-white/20 whitespace-nowrap transition-colors">Öğretmen (2)</button>
+          <button onclick="filterCategory('Öğrenci & Veli')" class="cat-pill px-3 py-1.5 rounded-full text-xs font-semibold bg-white/10 text-gray-200 hover:bg-white/20 whitespace-nowrap transition-colors">Öğrenci & Veli (4)</button>
+          <button onclick="filterCategory('Finans & Muhasebe')" class="cat-pill px-3 py-1.5 rounded-full text-xs font-semibold bg-white/10 text-gray-200 hover:bg-white/20 whitespace-nowrap transition-colors">Finans (1)</button>
+          <button onclick="filterCategory('Kimlik & Güvenlik')" class="cat-pill px-3 py-1.5 rounded-full text-xs font-semibold bg-white/10 text-gray-200 hover:bg-white/20 whitespace-nowrap transition-colors">Giriş/Kayıt (3)</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+    <!-- GRID VIEW MODE -->
+    <div id="grid-view-container">
+      <div id="screen-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Javascript dynamically inserts cards here -->
+      </div>
+    </div>
+
+    <!-- LIVE INTERACTIVE PREVIEW MODE -->
+    <div id="live-view-container" class="hidden">
+      <div class="bg-white rounded-xl border border-gray-200 p-4 mb-6 flex flex-wrap items-center justify-between gap-4 rappor-shadow">
+        <!-- Screen Selector -->
+        <div class="flex items-center space-x-3">
+          <label for="live-screen-select" class="text-xs font-bold text-gray-500 uppercase tracking-wider">Aktif Ekran:</label>
+          <select id="live-screen-select" onchange="changeLiveScreen(this.value)" class="text-sm font-semibold border-gray-300 rounded-md py-1.5 pl-3 pr-8 focus:ring-secondary focus:border-secondary">
+            <!-- options populated via JS -->
+          </select>
+        </div>
+
+        <!-- Viewport Controls -->
+        <div class="flex items-center space-x-2">
+          <span class="text-xs font-bold text-gray-500 uppercase tracking-wider mr-1">Cihaz Boyutu:</span>
+          <button onclick="setViewport('100%')" id="btn-vp-full" class="px-2.5 py-1 text-xs font-semibold rounded bg-secondary text-white">Tam Genişlik</button>
+          <button onclick="setViewport('1200px')" id="btn-vp-desktop" class="px-2.5 py-1 text-xs font-semibold rounded bg-gray-100 text-gray-700 hover:bg-gray-200">Masaüstü (1200px)</button>
+          <button onclick="setViewport('768px')" id="btn-vp-tablet" class="px-2.5 py-1 text-xs font-semibold rounded bg-gray-100 text-gray-700 hover:bg-gray-200">Tablet (768px)</button>
+          <button onclick="setViewport('390px')" id="btn-vp-mobile" class="px-2.5 py-1 text-xs font-semibold rounded bg-gray-100 text-gray-700 hover:bg-gray-200">Mobil (390px)</button>
+          <a id="btn-live-open-tab" href="/genel_y_netim_paneli_rappor/code.html" target="_blank" class="ml-2 inline-flex items-center text-xs font-bold text-secondary hover:underline">
+            <span>Yeni Sekmede Aç</span>
+            <span class="material-symbols-outlined text-sm ml-0.5">open_in_new</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Preview Iframe Stage -->
+      <div class="flex justify-center bg-gray-100 p-4 rounded-xl border border-gray-300 min-h-[800px] overflow-auto">
+        <div id="iframe-wrapper" class="w-full transition-all duration-300 bg-white rounded-lg shadow-xl overflow-hidden flex flex-col">
+          <div class="bg-gray-800 text-gray-300 text-xs px-4 py-2 flex items-center justify-between border-b border-gray-700">
+            <div class="flex items-center space-x-2">
+              <div class="w-3 h-3 rounded-full bg-red-500"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div class="w-3 h-3 rounded-full bg-green-500"></div>
+              <span id="iframe-url-display" class="ml-2 font-mono text-[11px] text-gray-400">/genel_y_netim_paneli_rappor/code.html</span>
+            </div>
+            <button onclick="reloadIframe()" class="hover:text-white flex items-center space-x-1">
+              <span class="material-symbols-outlined text-sm">refresh</span>
+              <span>Yenile</span>
+            </button>
+          </div>
+          <iframe id="live-iframe" src="/genel_y_netim_paneli_rappor/code.html" class="w-full h-[780px] border-0"></iframe>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Design System Token Modal -->
+  <div id="design-modal" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 rappor-shadow">
+      <div class="flex items-center justify-between border-b border-gray-200 pb-4 mb-4">
+        <div class="flex items-center space-x-2">
+          <span class="material-symbols-outlined text-secondary text-2xl">palette</span>
+          <h2 class="text-lg font-bold text-primary">RAPPOR Kurumsal Tasarım Sistemi (Design Tokens)</h2>
+        </div>
+        <button onclick="toggleDesignModal()" class="text-gray-400 hover:text-gray-700">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+
+      <div class="space-y-6 text-sm">
+        <!-- Color Palette -->
+        <div>
+          <h3 class="font-bold text-gray-900 mb-2">Renk Paleti (Color Tokens)</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="p-3 rounded-lg border border-gray-200 bg-white">
+              <div class="w-full h-8 rounded bg-[#002147] mb-2"></div>
+              <div class="font-bold text-xs">Primary Navy</div>
+              <div class="text-xs text-gray-500">#002147</div>
+            </div>
+            <div class="p-3 rounded-lg border border-gray-200 bg-white">
+              <div class="w-full h-8 rounded bg-[#115cb9] mb-2"></div>
+              <div class="font-bold text-xs">Secondary Blue</div>
+              <div class="text-xs text-gray-500">#115cb9</div>
+            </div>
+            <div class="p-3 rounded-lg border border-gray-200 bg-white">
+              <div class="w-full h-8 rounded bg-[#00a896] mb-2"></div>
+              <div class="font-bold text-xs">Tertiary Teal</div>
+              <div class="text-xs text-gray-500">#00a896</div>
+            </div>
+            <div class="p-3 rounded-lg border border-gray-200 bg-white">
+              <div class="w-full h-8 rounded bg-[#f8f9fa] border border-gray-300 mb-2"></div>
+              <div class="font-bold text-xs">Surface Gray</div>
+              <div class="text-xs text-gray-500">#f8f9fa</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Typography & Spacing -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <h4 class="font-bold text-gray-900 mb-1">Tipografi (Inter)</h4>
+            <ul class="text-xs text-gray-600 space-y-1">
+              <li>• <strong>Headline XL:</strong> 48px / Bold (700)</li>
+              <li>• <strong>Headline LG:</strong> 32px / Semi-Bold (600)</li>
+              <li>• <strong>Headline MD:</strong> 24px / Semi-Bold (600)</li>
+              <li>• <strong>Body Regular:</strong> 16px / 14px</li>
+            </ul>
+          </div>
+          <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <h4 class="font-bold text-gray-900 mb-1">Izgara & Köşe Kuralları</h4>
+            <ul class="text-xs text-gray-600 space-y-1">
+              <li>• <strong>Grid:</strong> 12 Sütun (1200px max genişlik)</li>
+              <li>• <strong>Rhythm Scale:</strong> 8px linear step</li>
+              <li>• <strong>Border Radius:</strong> 8px (0.5rem base)</li>
+              <li>• <strong>Card Shadows:</strong> 0 4px 20px rgba(0, 33, 71, 0.08)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-gray-400 py-6 border-t border-primary-container text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center space-x-2">
+        <span class="font-bold text-white">RAPPOR</span>
+        <span>— Eğitim Yönetim & Takip Sistemi</span>
+      </div>
+      <div>
+        <span>18 Ekran Modülü • Tailwind CSS • Inter • Material Symbols</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const screens = [
+      { id: 'genel_y_netim_paneli_rappor', title: 'Genel Yönetim Paneli', category: 'Yönetim & İdare', role: 'Yönetici', icon: 'dashboard', desc: 'Kurum geneli istatistikler, aktif dersler, finansal özet ve operasyonel metrikler.' },
+      { id: 'kullan_c_ve_rol_y_netimi_rappor', title: 'Kullanıcı ve Rol Yönetimi', category: 'Yönetim & İdare', role: 'Yönetici', icon: 'manage_accounts', desc: 'Öğretmen, öğrenci, veli ve idareci hesapları, rol yetkilendirmeleri ve kullanıcı listesi.' },
+      { id: 's_n_f_ve_e_itim_yap_s_y_netimi_rappor', title: 'Sınıf ve Eğitim Yapısı Yönetimi', category: 'Yönetim & İdare', role: 'Yönetici', icon: 'school', desc: 'Şubeler, seviyeler, derslikler ve eğitim hiyerarşisi yapılandırması.' },
+      { id: 'i_li_ki_ve_atama_y_netimi_rappor', title: 'İlişki ve Atama Yönetimi', category: 'Yönetim & İdare', role: 'Yönetici', icon: 'group_add', desc: 'Öğretmen-ders-sınıf atamaları ve öğrenci danışmanlık eşleştirmeleri.' },
+      { id: 'ders_ve_i_erik_y_netimi_rappor', title: 'Ders ve İçerik Yönetimi', category: 'Akademik & Müfredat', role: 'Akademik', icon: 'menu_book', desc: 'Müfredat üniteleri, ders planları, konu ağaçları ve içerik havuzu.' },
+      { id: 'ders_detay_ve_materyaller_rappor', title: 'Ders Detay ve Materyaller', category: 'Akademik & Müfredat', role: 'Öğretmen / Öğrenci', icon: 'folder_open', desc: 'Ders notları, video kayıtları, PDF materyalleri ve ödev dökümanları.' },
+      { id: 's_nav_ve_soru_y_netimi_rappor', title: 'Sınav ve Soru Yönetimi', category: 'Ölçme & Değerlendirme', role: 'Öğretmen', icon: 'quiz', desc: 'Soru bankası, optik form yönetimi, online/yüz yüze sınav hazırlama.' },
+      { id: 's_nav_sonu_ve_analiz_rappor', title: 'Sınav Sonuç ve Analiz', category: 'Ölçme & Değerlendirme', role: 'Yönetici / Öğretmen', icon: 'analytics', desc: 'Detaylı net analizleri, kazanım bazlı başarı grafikleri ve karne çıktıları.' },
+      { id: 'quiz_zme_ekran_rappor', title: 'Quiz Çözme Ekranı', category: 'Ölçme & Değerlendirme', role: 'Öğrenci', icon: 'timer', desc: 'Öğrenciler için sayaçlı, soru gezintili interaktif test ve quiz arayüzü.' },
+      { id: 'retmen_takvimi_rappor', title: 'Öğretmen Takvimi', category: 'Öğretmen Paneli', role: 'Öğretmen', icon: 'calendar_month', desc: 'Haftalık ders programı, etüt saatleri ve birebir öğrenci randevuları.' },
+      { id: 'yoklama_ve_finans_takibi_rappor', title: 'Yoklama ve Finans Takibi', category: 'Öğretmen Paneli', role: 'Öğretmen', icon: 'fact_check', desc: 'Ders bazlı yoklama alma, ek ders ve hakediş puantaj tablosu.' },
+      { id: 'renci_ders_takvimi_rappor', title: 'Öğrenci Ders Takvimi', category: 'Öğrenci & Veli', role: 'Öğrenci', icon: 'event', desc: 'Öğrencinin haftalık ders, etüt ve sınav takvimi ile canlı ders bağlantıları.' },
+      { id: 'renci_geli_im_ve_raporlar_rappor', title: 'Öğrenci Gelişim ve Raporlar', category: 'Öğrenci & Veli', role: 'Öğrenci / Veli', icon: 'trending_up', desc: 'Konu bazlı yetkinlik haritası, ödev tamamlama oranı ve deneme sınavı trendleri.' },
+      { id: 'veli_paneli_ve_renci_se_imi_rappor', title: 'Veli Paneli ve Öğrenci Seçimi', category: 'Öğrenci & Veli', role: 'Veli', icon: 'family_restroom', desc: 'Birden fazla öğrenci takibi, devamsızlık durumu, ödev kontrolü ve öğretmen mesajları.' },
+      { id: 'finansal_takip_ve_demeler_rappor', title: 'Finansal Takip ve Ödemeler', category: 'Finans & Muhasebe', role: 'Finans', icon: 'payments', desc: 'Öğrenci taksitleri, tahsilat durumu, gelir-gider raporları ve fatura takibi.' },
+      { id: 'giri_yap_rappor', title: 'Giriş Yap', category: 'Kimlik & Güvenlik', role: 'Genel', icon: 'login', desc: 'Kullanıcı giriş ekranı (T.C. Kimlik / E-posta ve şifre ile giriş).' },
+      { id: 'kay_t_ol_rappor', title: 'Kayıt Ol', category: 'Kimlik & Güvenlik', role: 'Genel', icon: 'person_add', desc: 'Yeni veli/öğrenci/öğretmen başvuru ve ön kayıt arayüzü.' },
+      { id: 'e_posta_do_rulama_rappor', title: 'E-posta Doğrulama', category: 'Kimlik & Güvenlik', role: 'Genel', icon: 'mark_email_read', desc: '6 haneli güvenlik kodu ile e-posta ve hesap doğrulama ekranı.' }
+    ];
+
+    let currentCategory = 'all';
+    let searchQuery = '';
+
+    function renderScreens() {
+      const grid = document.getElementById('screen-grid');
+      const filtered = screens.filter(s => {
+        const matchesCat = currentCategory === 'all' || s.category === currentCategory;
+        const matchesQuery = searchQuery === '' || 
+          s.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          s.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          s.role.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCat && matchesQuery;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-12 text-center text-gray-500">
+            <span class="material-symbols-outlined text-4xl mb-2">search_off</span>
+            <p class="text-sm">Aramanızla eşleşen ekran bulunamadı.</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(screen => `
+        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden flex flex-col rappor-shadow rappor-shadow-hover transition-all">
+          <!-- Thumbnail Preview Container -->
+          <div class="relative h-48 bg-gray-100 border-b border-gray-200 overflow-hidden group cursor-pointer" onclick="openPreview('${screen.id}')">
+            <img 
+              src="/${screen.id}/screen.png" 
+              alt="${screen.title}" 
+              class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+              onerror="this.src='/rappor_logo/screen.png'; this.classList.add('p-8');"
+            />
+            <div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-2">
+              <span class="px-3 py-1.5 rounded bg-white text-primary text-xs font-bold shadow">
+                Önizle
+              </span>
+            </div>
+            <span class="absolute top-3 right-3 px-2 py-1 rounded bg-primary/80 backdrop-blur-sm text-white text-[11px] font-semibold">
+              ${screen.role}
+            </span>
+          </div>
+
+          <!-- Card Body -->
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center space-x-2 text-secondary text-xs font-semibold mb-1">
+                <span class="material-symbols-outlined text-sm">${screen.icon}</span>
+                <span>${screen.category}</span>
+              </div>
+              <h3 class="text-base font-bold text-gray-900">${screen.title}</h3>
+              <p class="text-xs text-gray-600 mt-2 leading-relaxed line-clamp-2">${screen.desc}</p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between gap-2">
+              <button onclick="openLiveViewer('${screen.id}')" class="flex-1 inline-flex items-center justify-center space-x-1 px-3 py-2 rounded-md bg-surface-container hover:bg-surface-container-high text-xs font-semibold text-gray-800 transition-colors">
+                <span class="material-symbols-outlined text-sm">visibility</span>
+                <span>Canlı Sahne</span>
+              </button>
+              <a href="/${screen.id}/code.html" target="_blank" class="flex-1 inline-flex items-center justify-center space-x-1 px-3 py-2 rounded-md bg-secondary hover:bg-secondary/90 text-xs font-bold text-white transition-colors">
+                <span>Tam Ekran</span>
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function populateSelect() {
+      const sel = document.getElementById('live-screen-select');
+      sel.innerHTML = screens.map(s => `
+        <option value="${s.id}">${s.title} (${s.role})</option>
+      `).join('');
+    }
+
+    function filterCategory(cat) {
+      currentCategory = cat;
+      document.querySelectorAll('.cat-pill').forEach(btn => {
+        btn.classList.remove('bg-[#79f7e3]', 'text-primary');
+        btn.classList.add('bg-white/10', 'text-gray-200');
+      });
+      event.target.classList.remove('bg-white/10', 'text-gray-200');
+      event.target.classList.add('bg-[#79f7e3]', 'text-primary');
+      renderScreens();
+    }
+
+    function filterScreens() {
+      searchQuery = document.getElementById('search-input').value;
+      renderScreens();
+    }
+
+    function setViewMode(mode) {
+      const gridBtn = document.getElementById('btn-grid-view');
+      const liveBtn = document.getElementById('btn-live-view');
+      const gridCont = document.getElementById('grid-view-container');
+      const liveCont = document.getElementById('live-view-container');
+
+      if (mode === 'grid') {
+        gridBtn.className = "flex items-center space-x-1.5 px-3 py-1.5 rounded-md text-xs font-semibold bg-[#115cb9] text-white transition-all";
+        liveBtn.className = "flex items-center space-x-1.5 px-3 py-1.5 rounded-md text-xs font-semibold text-gray-300 hover:text-white transition-all";
+        gridCont.classList.remove('hidden');
+        liveCont.classList.add('hidden');
+      } else {
+        liveBtn.className = "flex items-center space-x-1.5 px-3 py-1.5 rounded-md text-xs font-semibold bg-[#115cb9] text-white transition-all";
+        gridBtn.className = "flex items-center space-x-1.5 px-3 py-1.5 rounded-md text-xs font-semibold text-gray-300 hover:text-white transition-all";
+        gridCont.classList.add('hidden');
+        liveCont.classList.remove('hidden');
+      }
+    }
+
+    function openLiveViewer(screenId) {
+      setViewMode('live');
+      document.getElementById('live-screen-select').value = screenId;
+      changeLiveScreen(screenId);
+    }
+
+    function openPreview(screenId) {
+      openLiveViewer(screenId);
+    }
+
+    function changeLiveScreen(screenId) {
+      const iframe = document.getElementById('live-iframe');
+      const url = `/${screenId}/code.html`;
+      iframe.src = url;
+      document.getElementById('iframe-url-display').textContent = url;
+      document.getElementById('btn-live-open-tab').href = url;
+    }
+
+    function setViewport(width) {
+      const wrapper = document.getElementById('iframe-wrapper');
+      wrapper.style.maxWidth = width;
+      ['btn-vp-full', 'btn-vp-desktop', 'btn-vp-tablet', 'btn-vp-mobile'].forEach(id => {
+        const btn = document.getElementById(id);
+        btn.className = "px-2.5 py-1 text-xs font-semibold rounded bg-gray-100 text-gray-700 hover:bg-gray-200";
+      });
+      event.target.className = "px-2.5 py-1 text-xs font-semibold rounded bg-secondary text-white";
+    }
+
+    function reloadIframe() {
+      const iframe = document.getElementById('live-iframe');
+      iframe.src = iframe.src;
+    }
+
+    function toggleDesignModal() {
+      const modal = document.getElementById('design-modal');
+      modal.classList.toggle('hidden');
+    }
+
+    // Init
+    renderScreens();
+    populateSelect();
+  </script>
+</body>
+</html>

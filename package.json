@@ -1,0 +1,15 @@
+{
+  "name": "rappor-design",
+  "version": "1.0.0",
+  "private": true,
+  "description": "RAPPOR Eğitim Yönetim Platformu - Tasarım ve Arayüz Sistemi",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "echo 'Static build ready'"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
