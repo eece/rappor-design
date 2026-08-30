@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kullanıcı ve Rol Yönetimi - RAPPOR</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#edeeef",
+                        "primary-fixed-dim": "#aec7f6",
+                        "on-background": "#191c1d",
+                        "secondary-fixed-dim": "#acc7ff",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "surface": "#f8f9fa",
+                        "on-tertiary-container": "#009a89",
+                        "inverse-primary": "#aec7f6",
+                        "surface-variant": "#e1e3e4",
+                        "outline": "#74777f",
+                        "background": "#f8f9fa",
+                        "on-tertiary-fixed": "#00201c",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-secondary-fixed": "#001a40",
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary-container": "#659dfe",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#465f88",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#002147",
+                        "secondary-fixed": "#d7e2ff",
+                        "inverse-surface": "#2e3132",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-bright": "#f8f9fa",
+                        "surface-container-low": "#f3f4f5",
+                        "tertiary-fixed": "#79f7e3",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e7e8e9",
+                        "tertiary": "#000e0b",
+                        "primary": "#000a1e",
+                        "tertiary-container": "#002722",
+                        "on-secondary-fixed-variant": "#004491",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#001b3d",
+                        "tertiary-fixed-dim": "#59dbc7",
+                        "surface-dim": "#d9dadb",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#003370",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#191c1d",
+                        "on-tertiary-fixed-variant": "#005047",
+                        "on-primary-container": "#708ab5",
+                        "secondary": "#115cb9",
+                        "outline-variant": "#c4c6cf",
+                        "on-surface-variant": "#44474e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "container-max": "1200px",
+                        "lg": "24px",
+                        "xxl": "48px",
+                        "unit": "8px",
+                        "md": "16px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "button": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "button": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col md:flex-row">
+<!-- SideNavBar (Desktop) -->
+<nav class="bg-surface-container-low dark:bg-surface-container-highest text-primary dark:text-primary-fixed h-full w-64 fixed left-0 top-0 border-r border-outline-variant dark:border-outline shadow-sm dark:shadow-none hidden md:flex flex-col gap-md p-md h-screen z-50">
+<div class="mb-xl">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">RAPPOR</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Education Platform</p>
+</div>
+<div class="flex flex-col gap-sm flex-grow">
+<!-- Simulated Navigation Items -->
+<button class="flex items-center gap-sm px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-dim transition-all scale-95 active:scale-100 cursor-pointer w-full text-left font-label-md text-label-md">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+                Dashboard
+            </button>
+<button class="flex items-center gap-sm px-md py-sm rounded-lg bg-secondary-fixed dark:bg-on-secondary-fixed-variant text-on-secondary-fixed font-bold rounded-lg scale-95 active:scale-100 transition-transform cursor-pointer w-full text-left font-label-md text-label-md shadow-[0px_4px_20px_rgba(0,33,71,0.08)]">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                Users &amp; Roles
+            </button>
+<button class="flex items-center gap-sm px-md py-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-dim transition-all scale-95 active:scale-100 cursor-pointer w-full text-left font-label-md text-label-md">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </button>
+</div>
+<div class="mt-auto pt-md border-t border-outline-variant">
+<button class="flex items-center justify-center gap-sm px-md py-sm rounded-lg w-full text-primary hover:bg-surface-container-high transition-colors font-button text-button">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                Need help?
+            </button>
+</div>
+</nav>
+<!-- TopNavBar (Mobile) -->
+<header class="bg-surface dark:bg-on-background text-secondary dark:text-secondary-fixed font-headline-md text-headline-md docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows flex justify-between items-center px-lg py-sm w-full max-w-container-max mx-auto md:hidden z-40 fixed">
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">RAPPOR</h1>
+<button class="material-symbols-outlined cursor-pointer transition-all duration-200 p-sm rounded-lg hover:bg-surface-container-low" data-icon="menu">menu</button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 p-lg md:p-xl mt-[64px] md:mt-0 max-w-container-max mx-auto w-full">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-xl gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary font-bold">Kullanıcı ve Rol Yönetimi</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Sistemdeki tüm öğretmen, öğrenci ve veli hesaplarını yönetin.</p>
+</div>
+<button class="bg-primary text-on-primary px-lg py-sm rounded-lg font-button text-button hover:opacity-90 transition-opacity flex items-center gap-sm shadow-[0px_4px_20px_rgba(0,33,71,0.08)]">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                Yeni Kullanıcı Ekle
+            </button>
+</div>
+<!-- Filters & Search Bar -->
+<div class="bg-surface rounded-xl p-md mb-lg shadow-[0px_4px_20px_rgba(0,33,71,0.08)] flex flex-col md:flex-row gap-md items-center">
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-xl pr-md py-sm bg-surface-container-lowest border border-outline-variant rounded-lg font-body-sm text-body-sm focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all" placeholder="İsim, e-posta veya TC Kimlik No ile ara..." type="text"/>
+</div>
+<div class="flex flex-wrap gap-sm w-full md:w-auto">
+<button class="px-md py-xs rounded-full border border-secondary text-secondary bg-secondary-fixed-dim bg-opacity-20 font-label-md text-label-md transition-colors">Tümü</button>
+<button class="px-md py-xs rounded-full border border-outline-variant text-on-surface-variant hover:border-secondary hover:text-secondary font-label-md text-label-md transition-colors">Öğretmen</button>
+<button class="px-md py-xs rounded-full border border-outline-variant text-on-surface-variant hover:border-secondary hover:text-secondary font-label-md text-label-md transition-colors">Öğrenci</button>
+<button class="px-md py-xs rounded-full border border-outline-variant text-on-surface-variant hover:border-secondary hover:text-secondary font-label-md text-label-md transition-colors">Veli</button>
+</div>
+<div class="flex gap-sm ml-auto w-full md:w-auto justify-end">
+<select class="px-md py-sm bg-surface-container-lowest border border-outline-variant rounded-lg font-body-sm text-body-sm focus:outline-none focus:border-secondary transition-all cursor-pointer">
+<option value="all">Tüm Durumlar</option>
+<option value="active">Aktif</option>
+<option value="passive">Pasif</option>
+</select>
+</div>
+</div>
+<!-- Users Data Table (Glassmorphism inspired card) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(0,33,71,0.08)] overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant bg-surface-container-low text-on-surface-variant font-label-md text-label-md uppercase tracking-wider">
+<th class="p-md font-semibold">Kullanıcı</th>
+<th class="p-md font-semibold">Rol</th>
+<th class="p-md font-semibold">E-posta</th>
+<th class="p-md font-semibold">Son Giriş</th>
+<th class="p-md font-semibold">Durum</th>
+<th class="p-md font-semibold text-right">Aksiyonlar</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm text-on-surface">
+<!-- Row 1 -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors group">
+<td class="p-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-highest flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a female teacher in her 30s, wearing glasses and a smart casual blazer, against a clean light grey background, high-key lighting, modern corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmArUCr7-StbFCr4h4jnmjb0TEFOzMO3dZDUJlt10N-W1MBOmnq0aJFfBTEKdDGaS3VORDvRH-7guYkByjjTRu3VJrHRI42-a-vLSomRnIOHQbjRiv8rLC8Rt-C8yQ46twVy3rDzPVup4R_BilFhGDIwra7pj8H0k1OcBioIbczcdSgXen9EC4hNBM67VPaj99OPHN3IyyG7N2t1KnFiLrWZN60QiEeLllJ73iucHVryDAFe_Ui48E9Q"/>
+</div>
+<div>
+<p class="font-bold text-primary">Ayşe Yılmaz</p>
+<p class="text-on-surface-variant text-xs">TR12345678901</p>
+</div>
+</div>
+</td>
+<td class="p-md">
+<span class="px-sm py-xs bg-secondary-fixed bg-opacity-30 text-secondary rounded-full font-label-md text-xs">Öğretmen</span>
+</td>
+<td class="p-md">ayse.yilmaz@okul.edu.tr</td>
+<td class="p-md text-on-surface-variant">12 Eki 2023, 08:30</td>
+<td class="p-md">
+<span class="px-sm py-xs bg-tertiary-fixed bg-opacity-20 text-on-tertiary-fixed-variant rounded-full font-label-md text-xs flex items-center gap-xs w-max">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-fixed-variant"></span>
+                                    Aktif
+                                </span>
+</td>
+<td class="p-md text-right">
+<div class="flex justify-end gap-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-xs text-on-surface-variant hover:text-secondary transition-colors" title="Düzenle">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-error transition-colors" title="Askıya Al">
+<span class="material-symbols-outlined" data-icon="block">block</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-secondary transition-colors" title="Yetkiler">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors group">
+<td class="p-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-highest flex items-center justify-center text-secondary font-bold text-lg">
+                                        MB
+                                    </div>
+<div>
+<p class="font-bold text-primary">Mehmet Boz</p>
+<p class="text-on-surface-variant text-xs">TR98765432109</p>
+</div>
+</div>
+</td>
+<td class="p-md">
+<span class="px-sm py-xs bg-surface-variant text-on-surface-variant rounded-full font-label-md text-xs">Öğrenci</span>
+</td>
+<td class="p-md">mehmet.b@ogr.edu.tr</td>
+<td class="p-md text-on-surface-variant">11 Eki 2023, 14:15</td>
+<td class="p-md">
+<span class="px-sm py-xs bg-tertiary-fixed bg-opacity-20 text-on-tertiary-fixed-variant rounded-full font-label-md text-xs flex items-center gap-xs w-max">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-fixed-variant"></span>
+                                    Aktif
+                                </span>
+</td>
+<td class="p-md text-right">
+<div class="flex justify-end gap-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-xs text-on-surface-variant hover:text-secondary transition-colors" title="Düzenle">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-error transition-colors" title="Askıya Al">
+<span class="material-symbols-outlined" data-icon="block">block</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-secondary transition-colors" title="Yetkiler">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors group">
+<td class="p-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-highest flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="A casual portrait of a middle-aged man, father figure, wearing a plain blue shirt, warm smile, simple neutral background, bright natural lighting, professional yet approachable aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM4wB7QuHHsEN-qXdnkqFuAKuQ82bvSnbtqLfwNAVT0zYf2olcYWwOarUJVIpRf5nSI4BMYNXe94irTtspk9Rh1UfQdsQ7PmWOMKcQu_8sp1IuSt2m1sqKysybCgwfFgw2RspoyymCBp6yIPxusMxM-Qp0NMaZFosztes8ZJqa0dSFuDA5fyVOofI_NqeOAYEl0qTY4LNEOsded_Bwe8QnSVGOXgFfyL4to8JJDNFZqtwXZQlLf9eRIg"/>
+</div>
+<div>
+<p class="font-bold text-primary">Ali Veli</p>
+<p class="text-on-surface-variant text-xs">TR45678912300</p>
+</div>
+</div>
+</td>
+<td class="p-md">
+<span class="px-sm py-xs bg-surface-container-high border border-outline-variant text-on-surface rounded-full font-label-md text-xs">Veli</span>
+</td>
+<td class="p-md">ali.veli@gmail.com</td>
+<td class="p-md text-on-surface-variant">-</td>
+<td class="p-md">
+<span class="px-sm py-xs bg-error-container bg-opacity-50 text-on-error-container rounded-full font-label-md text-xs flex items-center gap-xs w-max">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+                                    Pasif
+                                </span>
+</td>
+<td class="p-md text-right">
+<div class="flex justify-end gap-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-xs text-on-surface-variant hover:text-secondary transition-colors" title="Düzenle">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-tertiary-container transition-colors" title="Aktifleştir">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-secondary transition-colors" title="Yetkiler">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-md bg-surface border-t border-outline-variant flex items-center justify-between">
+<span class="text-on-surface-variant font-body-sm text-body-sm">Toplam 142 kullanıcıdan 1-10 arası gösteriliyor</span>
+<div class="flex gap-sm">
+<button class="p-xs rounded border border-outline-variant text-outline hover:bg-surface-container-high transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-secondary text-on-secondary font-label-md text-label-md flex items-center justify-center">1</button>
+<button class="w-8 h-8 rounded border border-outline-variant text-on-surface hover:bg-surface-container-high font-label-md text-label-md flex items-center justify-center transition-colors">2</button>
+<button class="w-8 h-8 rounded border border-outline-variant text-on-surface hover:bg-surface-container-high font-label-md text-label-md flex items-center justify-center transition-colors">3</button>
+<span class="flex items-center text-on-surface-variant">...</span>
+<button class="p-xs rounded border border-outline-variant text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

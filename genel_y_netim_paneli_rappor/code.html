@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Genel Yönetim Paneli - RAPPOR</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container": "#edeeef",
+                        "primary-fixed-dim": "#aec7f6",
+                        "on-background": "#191c1d",
+                        "secondary-fixed-dim": "#acc7ff",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "surface": "#f8f9fa",
+                        "on-tertiary-container": "#009a89",
+                        "inverse-primary": "#aec7f6",
+                        "surface-variant": "#e1e3e4",
+                        "outline": "#74777f",
+                        "background": "#f8f9fa",
+                        "on-tertiary-fixed": "#00201c",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-secondary-fixed": "#001a40",
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary-container": "#659dfe",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#465f88",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#002147",
+                        "secondary-fixed": "#d7e2ff",
+                        "inverse-surface": "#2e3132",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-bright": "#f8f9fa",
+                        "surface-container-low": "#f3f4f5",
+                        "tertiary-fixed": "#79f7e3",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e7e8e9",
+                        "tertiary": "#000e0b",
+                        "primary": "#000a1e",
+                        "tertiary-container": "#002722",
+                        "on-secondary-fixed-variant": "#004491",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#001b3d",
+                        "tertiary-fixed-dim": "#59dbc7",
+                        "surface-dim": "#d9dadb",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#003370",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#191c1d",
+                        "on-tertiary-fixed-variant": "#005047",
+                        "on-primary-container": "#708ab5",
+                        "secondary": "#115cb9",
+                        "outline-variant": "#c4c6cf",
+                        "on-surface-variant": "#44474e"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        sm: "8px",
+                        gutter: "24px",
+                        xs: "4px",
+                        "container-max": "1200px",
+                        lg: "24px",
+                        xxl: "48px",
+                        unit: "8px",
+                        md: "16px",
+                        xl: "32px"
+                    },
+                    fontFamily: {
+                        "headline-xl": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        button: ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    fontSize: {
+                        "headline-xl": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "600" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        button: ["16px", { lineHeight: "24px", fontWeight: "600" }],
+                        "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }]
+                    }
+                }
+            }
+        };
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex h-screen overflow-hidden antialiased">
+<!-- SideNavBar (from JSON) -->
+<nav class="hidden md:flex flex-col gap-md p-md h-screen w-64 fixed left-0 top-0 border-r border-outline-variant dark:border-outline shadow-sm dark:shadow-none bg-surface-container-low dark:bg-surface-container-highest z-50">
+<div class="flex items-center gap-sm mb-lg px-sm">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="font-headline-md text-headline-md font-bold">R</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">RAPPOR</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">Education Platform</p>
+</div>
+</div>
+<div class="flex flex-col gap-sm flex-1">
+<a class="flex items-center gap-sm p-sm rounded-lg bg-secondary-fixed dark:bg-on-secondary-fixed-variant text-on-secondary-fixed font-bold scale-95 active:scale-100 transition-transform" href="#">
+<span class="material-symbols-outlined filled-icon">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-sm p-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-dim transition-all scale-95 active:scale-100 transition-transform" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Users</span>
+</a>
+<a class="flex items-center gap-sm p-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-dim transition-all scale-95 active:scale-100 transition-transform" href="#">
+<span class="material-symbols-outlined">hub</span>
+<span class="font-label-md text-label-md">Relationships</span>
+</a>
+<a class="flex items-center gap-sm p-sm rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-dim transition-all scale-95 active:scale-100 transition-transform" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+<span class="font-label-md text-label-md">Structure</span>
+</a>
+</div>
+<div class="mt-auto">
+<button class="w-full flex items-center justify-center gap-sm p-sm rounded-lg border border-outline text-on-surface hover:bg-surface-container-high transition-colors font-button text-button">
+<span class="material-symbols-outlined">help</span>
+                Need help?
+            </button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 flex flex-col h-screen overflow-y-auto bg-background">
+<!-- TopAppBar (from JSON) -->
+<header class="docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows bg-surface dark:bg-on-background sticky z-40">
+<div class="flex justify-between items-center px-lg py-sm w-full max-w-container-max mx-auto">
+<div class="md:hidden flex items-center gap-sm">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">RAPPOR</span>
+</div>
+<div class="hidden md:block">
+<h2 class="font-headline-md text-headline-md text-on-surface">Genel Yönetim Paneli</h2>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-secondary dark:text-secondary-fixed font-button text-button hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors p-sm rounded-lg cursor-pointer transition-all duration-200">Help</button>
+<button class="bg-primary text-on-primary font-button text-button px-md py-sm rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-colors cursor-pointer transition-all duration-200">Contact Support</button>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<div class="p-lg md:p-xl max-w-container-max mx-auto w-full flex flex-col gap-lg">
+<!-- Metrics Row -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0px_4px_20px_rgba(0,33,71,0.08)] border border-surface-variant flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">Toplam Kullanıcı</p>
+<p class="font-headline-lg text-headline-lg text-on-surface mt-xs">12,450</p>
+</div>
+<div class="p-sm bg-primary-fixed-dim rounded-lg text-on-primary-fixed-variant">
+<span class="material-symbols-outlined">group</span>
+</div>
+</div>
+<div class="flex items-center gap-xs mt-auto">
+<span class="material-symbols-outlined text-on-tertiary-container text-[16px]">trending_up</span>
+<span class="font-body-sm text-body-sm text-on-tertiary-container">+5.2% bu ay</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0px_4px_20px_rgba(0,33,71,0.08)] border border-surface-variant flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">Aktif Dersler</p>
+<p class="font-headline-lg text-headline-lg text-on-surface mt-xs">842</p>
+</div>
+<div class="p-sm bg-secondary-fixed-dim rounded-lg text-on-secondary-fixed-variant">
+<span class="material-symbols-outlined">menu_book</span>
+</div>
+</div>
+<div class="flex items-center gap-xs mt-auto">
+<span class="material-symbols-outlined text-on-tertiary-container text-[16px]">trending_up</span>
+<span class="font-body-sm text-body-sm text-on-tertiary-container">+12 yeni ders</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0px_4px_20px_rgba(0,33,71,0.08)] border border-surface-variant flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">Bekleyen Onaylar</p>
+<p class="font-headline-lg text-headline-lg text-on-surface mt-xs">38</p>
+</div>
+<div class="p-sm bg-error-container rounded-lg text-on-error-container">
+<span class="material-symbols-outlined">pending_actions</span>
+</div>
+</div>
+<div class="flex items-center gap-xs mt-auto">
+<span class="material-symbols-outlined text-on-error-container text-[16px]">warning</span>
+<span class="font-body-sm text-body-sm text-on-error-container">İlgilenilmesi gerekiyor</span>
+</div>
+</div>
+</div>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Left Column: Chart & Activities -->
+<div class="lg:col-span-2 flex flex-col gap-lg">
+<!-- Chart Placeholder -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(0,33,71,0.08)] border border-surface-variant p-md">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-md text-headline-md text-on-surface">Sistem Aktivitesi</h3>
+<select class="bg-surface-container-low border-outline-variant text-on-surface text-body-sm rounded-lg px-sm py-xs focus:border-secondary focus:ring-1 focus:ring-secondary outline-none">
+<option>Son 7 Gün</option>
+<option>Bu Ay</option>
+<option>Tüm Zamanlar</option>
+</select>
+</div>
+<div class="h-64 w-full bg-surface-container-low rounded-lg border border-outline-variant flex items-center justify-center relative overflow-hidden">
+<!-- Placeholder for actual chart -->
+<div class="absolute bottom-0 left-0 w-full h-full flex items-end px-md gap-sm opacity-50">
+<div class="w-1/6 bg-secondary h-1/3 rounded-t-sm"></div>
+<div class="w-1/6 bg-secondary h-1/2 rounded-t-sm"></div>
+<div class="w-1/6 bg-secondary h-2/5 rounded-t-sm"></div>
+<div class="w-1/6 bg-secondary h-3/4 rounded-t-sm"></div>
+<div class="w-1/6 bg-secondary h-2/3 rounded-t-sm"></div>
+<div class="w-1/6 bg-secondary h-full rounded-t-sm"></div>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant relative z-10 bg-surface-container px-sm py-xs rounded">Grafik Görselleştirmesi</span>
+</div>
+</div>
+<!-- Recent Activities List -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(0,33,71,0.08)] border border-surface-variant p-md">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md">Son Aktiviteler</h3>
+<div class="flex flex-col gap-0">
+<!-- Activity Item -->
+<div class="flex items-start gap-md py-sm border-b border-outline-variant last:border-0">
+<div class="w-10 h-10 rounded-full bg-primary-fixed-dim flex items-center justify-center text-on-primary-fixed-variant shrink-0">
+<span class="material-symbols-outlined">school</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-surface">Yeni ders eklendi: <span class="font-bold">İleri Matematik 101</span></p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Prof. Dr. Ahmet Yılmaz tarafından</p>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant shrink-0">10 dk önce</span>
+</div>
+<!-- Activity Item -->
+<div class="flex items-start gap-md py-sm border-b border-outline-variant last:border-0">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed-dim flex items-center justify-center text-on-secondary-fixed-variant shrink-0">
+<span class="material-symbols-outlined">person_add</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-surface">15 yeni öğrenci kaydı tamamlandı.</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mühendislik Fakültesi</p>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant shrink-0">1 saat önce</span>
+</div>
+<!-- Activity Item -->
+<div class="flex items-start gap-md py-sm border-b border-outline-variant last:border-0">
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-on-error-container shrink-0">
+<span class="material-symbols-outlined">report_problem</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-surface">Sistem uyarısı: Sunucu yükü yüksek.</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Veritabanı optimizasyonu gerekli olabilir.</p>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant shrink-0">3 saat önce</span>
+</div>
+</div>
+<button class="w-full mt-sm py-sm text-secondary font-button text-button hover:bg-surface-container-low rounded-lg transition-colors">Tümünü Gör</button>
+</div>
+</div>
+<!-- Right Column: Approvals -->
+<div class="flex flex-col gap-lg">
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(0,33,71,0.08)] border border-surface-variant p-md flex-1">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-md text-headline-md text-on-surface">Bekleyen Onaylar</h3>
+<span class="bg-error text-on-error font-label-md text-label-md px-sm py-xs rounded-full">3</span>
+</div>
+<div class="flex flex-col gap-sm">
+<!-- Approval Card -->
+<div class="border border-outline-variant rounded-lg p-sm flex flex-col gap-sm bg-surface">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 rounded-full bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Professional headshot of a female teacher in a modern bright educational setting. The lighting is soft and corporate. She wears a neat blouse, projecting a sense of academic readiness and institutional trust." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2VfEQBc-gg3sBwz6f-P68m_4sIwyE09ZCTjmE5MBsBYBD6O88LgsHxTse-tUcJFAxUlJTgmFFMENkLCV8yX0AK__OLigoddNz9TZ4rWlJaI6QSAM9HT7rdrpKiMl9MYcLxJsiECFUEPY9haqZNfPNIW_r4KMv8DGdP6af21XFRYzrCB0N1SeGmyQQBPQHZd060Zw9P5LvJH7t001NIbO7gXAFA8LRDOMT7srGgOE9b9K533ZupZ5i9w"/>
+</div>
+<div>
+<p class="font-button text-button text-on-surface">Elif Şahin</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Öğretmen Başvurusu</p>
+</div>
+</div>
+<div class="flex gap-sm mt-xs">
+<button class="flex-1 bg-surface-container border border-outline text-on-surface font-button text-button py-xs rounded-lg hover:bg-surface-container-high transition-colors">İncele</button>
+<button class="flex-1 bg-tertiary-container text-on-tertiary-container font-button text-button py-xs rounded-lg hover:bg-tertiary-fixed transition-colors">Onayla</button>
+</div>
+</div>
+<!-- Approval Card -->
+<div class="border border-outline-variant rounded-lg p-sm flex flex-col gap-sm bg-surface">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 rounded-full bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Professional headshot of a male instructor in a well-lit office environment. He looks approachable and experienced, wearing a smart-casual shirt, suitable for an online education platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvNL1LqZS5k3cx6bgbuVVaSruMHUm4HVL31ZKg115-knG8_ebvvJvSjJYhiT64mmyd4r592txBjvEZEIDcVBvgdUnoZS-IaUjc7IGSiDrBzXLCKlPs1iHo49U2yaKtv0xo3vfT-f-oH3Ffzu0YfPPoSciojcKMaWCcuNNx-nDO9JGoQchOmssXq_viMyNXNjE0q9JawDyMkLYOuEAyOuDK0wO5-E7mVrlcd4zfrQcdeAormzhse-f31Q"/>
+</div>
+<div>
+<p class="font-button text-button text-on-surface">Caner Kaya</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Bölüm Başkanı Ataması</p>
+</div>
+</div>
+<div class="flex gap-sm mt-xs">
+<button class="flex-1 bg-surface-container border border-outline text-on-surface font-button text-button py-xs rounded-lg hover:bg-surface-container-high transition-colors">İncele</button>
+<button class="flex-1 bg-tertiary-container text-on-tertiary-container font-button text-button py-xs rounded-lg hover:bg-tertiary-fixed transition-colors">Onayla</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

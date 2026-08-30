@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ders Detay ve Materyaller - RAPPOR</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#00201c",
+                        "tertiary-fixed-dim": "#59dbc7",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-bright": "#f8f9fa",
+                        "on-secondary-fixed": "#001a40",
+                        "on-error": "#ffffff",
+                        "primary-container": "#002147",
+                        "secondary-fixed": "#d7e2ff",
+                        "secondary-container": "#659dfe",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#009a89",
+                        "on-secondary-fixed-variant": "#004491",
+                        "primary": "#000a1e",
+                        "inverse-surface": "#2e3132",
+                        "surface-container": "#edeeef",
+                        "on-surface-variant": "#44474e",
+                        "surface-dim": "#d9dadb",
+                        "on-primary-container": "#708ab5",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "surface-container-highest": "#e1e3e4",
+                        "outline": "#74777f",
+                        "on-surface": "#191c1d",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#005047",
+                        "primary-fixed-dim": "#aec7f6",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-tint": "#465f88",
+                        "outline-variant": "#c4c6cf",
+                        "surface-variant": "#e1e3e4",
+                        "on-secondary-container": "#003370",
+                        "on-background": "#191c1d",
+                        "tertiary-container": "#002722",
+                        "secondary-fixed-dim": "#acc7ff",
+                        "background": "#f8f9fa",
+                        "inverse-primary": "#aec7f6",
+                        "tertiary": "#000e0b",
+                        "surface-container-low": "#f3f4f5",
+                        "surface": "#f8f9fa",
+                        "on-primary-fixed": "#001b3d",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e7e8e9",
+                        "secondary": "#115cb9",
+                        "tertiary-fixed": "#79f7e3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xxl": "48px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "sm": "8px",
+                        "container-max": "1200px",
+                        "md": "16px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "button": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "button": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .markdown-body h1 { @apply font-headline-md text-headline-md text-on-surface mb-md; }
+        .markdown-body h2 { @apply font-headline-md text-headline-md text-on-surface mb-sm mt-lg; }
+        .markdown-body p { @apply font-body-md text-body-md text-on-surface-variant mb-md; }
+        .markdown-body ul { @apply list-disc list-inside mb-md; }
+        .markdown-body li { @apply font-body-md text-body-md text-on-surface-variant mb-xs; }
+        .markdown-body code { @apply bg-surface-container-high px-1 py-0.5 rounded font-mono text-sm; }
+        .markdown-body pre { @apply bg-surface-container-highest p-md rounded-lg overflow-x-auto mb-md; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col md:flex-row">
+<!-- Navigation suppressed as this is a sub-page/detail view within the learning flow -->
+<main class="flex-1 flex flex-col md:flex-row w-full max-w-container-max mx-auto h-screen overflow-hidden">
+<!-- Course Sidebar -->
+<aside class="w-full md:w-64 md:flex-shrink-0 border-r border-outline-variant bg-surface-container-lowest h-auto md:h-full overflow-y-auto flex flex-col hidden md:flex">
+<div class="p-gutter border-b border-outline-variant">
+<button class="flex items-center gap-xs text-secondary hover:text-secondary-fixed-dim transition-colors mb-md">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+<span class="font-button text-button">Back to Course</span>
+</button>
+<h2 class="font-headline-md text-headline-md text-primary">Advanced Algorithms</h2>
+<div class="mt-sm flex items-center gap-xs">
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary-container h-full w-[45%] rounded-full"></div>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">45%</span>
+</div>
+</div>
+<nav class="p-md flex-1 overflow-y-auto">
+<div class="mb-lg">
+<h3 class="font-label-md text-label-md text-outline uppercase tracking-wider mb-sm px-sm">Unit 1: Fundamentals</h3>
+<ul class="space-y-xs">
+<li>
+<a class="flex items-center gap-sm px-sm py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined text-tertiary-container text-sm">check_circle</span>
+<span class="font-body-sm text-body-sm">Introduction</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-sm py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined text-tertiary-container text-sm">check_circle</span>
+<span class="font-body-sm text-body-sm">Big O Notation</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="mb-lg">
+<h3 class="font-label-md text-label-md text-outline uppercase tracking-wider mb-sm px-sm">Unit 2: Data Structures</h3>
+<ul class="space-y-xs">
+<li>
+<a class="flex items-center gap-sm px-sm py-sm rounded-lg bg-secondary-container text-on-secondary-container" href="#">
+<span class="material-symbols-outlined text-sm">play_circle</span>
+<span class="font-body-sm text-body-sm font-semibold">Trees and Graphs</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-sm py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined text-outline text-sm">lock</span>
+<span class="font-body-sm text-body-sm">Hash Tables</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<section class="flex-1 flex flex-col h-full overflow-hidden bg-surface">
+<!-- Header -->
+<header class="p-gutter border-b border-outline-variant bg-surface-container-lowest flex justify-between items-start shrink-0">
+<div>
+<div class="flex items-center gap-sm mb-xs">
+<span class="px-sm py-xs bg-primary-container text-on-primary-container rounded-full font-label-md text-[12px]">Unit 2</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Estimated time: 45 mins</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary">Trees and Graphs Overview</h1>
+</div>
+<button class="bg-tertiary-container text-on-tertiary px-lg py-sm rounded-lg font-button text-button hover:bg-tertiary transition-colors shadow-sm flex items-center gap-sm">
+                    Mark Complete
+                    <span class="material-symbols-outlined text-sm">check</span>
+</button>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-gutter lg:p-xxl">
+<div class="max-w-4xl mx-auto flex flex-col lg:flex-row gap-xl">
+<!-- Markdown Reader -->
+<article class="flex-1 bg-surface-container-lowest rounded-xl shadow-sm p-lg border border-outline-variant markdown-body">
+<h2>Introduction to Non-Linear Structures</h2>
+<p>In computer science, a data structure is a data organization, management, and storage format that enables efficient access and modification. More precisely, a data structure is a collection of data values, the relationships among them, and the functions or operations that can be applied to the data.</p>
+<img class="w-full h-64 object-cover rounded-lg mb-md bg-surface-container-low" data-alt="A modern, abstract digital illustration showing glowing nodes connected by lines, representing a graph data structure. The color palette features deep navy blues and bright teal accents against a pristine white background. High-tech, clean, educational aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwtJPmeh-8h4bdsef21NyL5iglccHu6AI1GdyOSRYhEd10UQtMrXy_Wa1MSA7ccNOpwNMi7uvC5d5q4fI71CJLQTN0pKWn1dTg7rk3RkZwVfW3vN0njFDPpFIllRDp5-HArQo98oS0QqDcbjAsE5B4H2Y_A6KwTLxkaP4IPmigsF6fQyqebCahAWZ73uPbmaQRD8ojG4XqSJ9v_pK5R8ic6NP78he2SClK1h0lxtV0k29w9ZgfBeDFaA"/>
+<h2>Key Concepts</h2>
+<ul>
+<li><strong>Nodes:</strong> The fundamental part of a graph or tree.</li>
+<li><strong>Edges:</strong> The connections between nodes.</li>
+<li><strong>Root:</strong> The starting node in a tree.</li>
+</ul>
+<h2>Example Code snippet</h2>
+<pre><code>class Node {
+    constructor(data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+}</code></pre>
+<p>Understanding these structures is crucial for algorithm optimization.</p>
+</article>
+<!-- Materials Sidebar -->
+<aside class="w-full lg:w-80 shrink-0">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-lg border border-outline-variant sticky top-lg">
+<h3 class="font-headline-md text-[20px] text-primary mb-md flex items-center gap-sm">
+<span class="material-symbols-outlined">folder_open</span>
+                                Materials
+                            </h3>
+<ul class="space-y-sm">
+<li>
+<a class="group flex items-start gap-md p-md rounded-lg border border-outline-variant hover:border-secondary hover:bg-surface-container-low transition-all" href="#">
+<div class="bg-error-container text-on-error-container p-sm rounded-md shrink-0 mt-xs">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface group-hover:text-secondary transition-colors">Lecture Slides</h4>
+<p class="font-body-sm text-[12px] text-on-surface-variant mt-1">PDF • 2.4 MB</p>
+</div>
+</a>
+</li>
+<li>
+<a class="group flex items-start gap-md p-md rounded-lg border border-outline-variant hover:border-secondary hover:bg-surface-container-low transition-all" href="#">
+<div class="bg-secondary-fixed text-on-secondary-fixed p-sm rounded-md shrink-0 mt-xs">
+<span class="material-symbols-outlined">play_circle</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface group-hover:text-secondary transition-colors">Graph Traversal Demo</h4>
+<p class="font-body-sm text-[12px] text-on-surface-variant mt-1">Video • 12 mins</p>
+</div>
+</a>
+</li>
+<li>
+<a class="group flex items-start gap-md p-md rounded-lg border border-outline-variant hover:border-secondary hover:bg-surface-container-low transition-all" href="#">
+<div class="bg-surface-variant text-on-surface-variant p-sm rounded-md shrink-0 mt-xs">
+<span class="material-symbols-outlined">link</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface group-hover:text-secondary transition-colors">Interactive Visualizer</h4>
+<p class="font-body-sm text-[12px] text-on-surface-variant mt-1">External Resource</p>
+</div>
+</a>
+</li>
+</ul>
+</div>
+</aside>
+</div>
+</div>
+</section>
+</main>
+</body></html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="light" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Yoklama ve Finans - RAPPOR Edu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-surface": "#2e3132",
+                        "primary-fixed-dim": "#aec7f6",
+                        "error": "#ba1a1a",
+                        "background": "#f8f9fa",
+                        "on-tertiary-container": "#009a89",
+                        "primary-fixed": "#d6e3ff",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-secondary-fixed-variant": "#004491",
+                        "primary": "#000a1e",
+                        "outline-variant": "#c4c6cf",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-tint": "#465f88",
+                        "on-primary-fixed": "#001b3d",
+                        "outline": "#74777f",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "surface": "#f8f9fa",
+                        "surface-variant": "#e1e3e4",
+                        "on-secondary-fixed": "#001a40",
+                        "surface-container-low": "#f3f4f5",
+                        "secondary": "#115cb9",
+                        "tertiary-fixed-dim": "#59dbc7",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "on-surface-variant": "#44474e",
+                        "on-primary-container": "#708ab5",
+                        "on-secondary-container": "#003370",
+                        "on-tertiary-fixed": "#00201c",
+                        "on-tertiary-fixed-variant": "#005047",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#d7e2ff",
+                        "secondary-container": "#659dfe",
+                        "surface-dim": "#d9dadb",
+                        "surface-container": "#edeeef",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#79f7e3",
+                        "secondary-fixed-dim": "#acc7ff",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-bright": "#f8f9fa",
+                        "tertiary": "#000e0b",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#002722",
+                        "primary-container": "#002147",
+                        "inverse-primary": "#aec7f6"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "xxl": "48px",
+                        "sm": "8px",
+                        "unit": "8px",
+                        "container-max": "1200px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "md": "16px"
+                    },
+                    fontFamily: {
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "button": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    fontSize: {
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "headline-xl": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "600" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" }],
+                        "button": ["16px", { lineHeight: "24px", fontWeight: "600" }],
+                        "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .custom-shadow { box-shadow: 0px 4px 20px rgba(0, 33, 71, 0.08); }
+        .checkbox-custom { accent-color: #000a1e; width: 1.2rem; height: 1.2rem; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col md:flex-row">
+<!-- Mobile Top Navigation -->
+<nav class="flex justify-between items-center px-lg py-sm w-full bg-surface-container-lowest border-b border-outline-variant shadow-sm w-full top-0 sticky md:hidden z-50">
+<div class="font-headline-md text-headline-md font-bold text-primary">EduPro Academy</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined cursor-pointer hover:bg-surface-container-low transition-colors text-on-surface-variant p-sm rounded-full" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:bg-surface-container-low transition-colors text-on-surface-variant p-sm rounded-full" data-icon="settings">settings</span>
+<img alt="Teacher Profile Avatar" class="w-8 h-8 rounded-full object-cover border border-outline-variant cursor-pointer" data-alt="A small, professional headshot of a teacher for a profile avatar. Well-lit, modern corporate style, light background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoDvJJoqrKX-kMtz3jwDo8zIom_GAxRgF5B83O7gV-kpyaWeLNEkEAFZ8cOuHItN2dmDMDCeOWUJu0dTbCpOfLST3G8MlK_Sa4JvtnU9Rs-zuoVxfAQ7jPyd1tY1-18j5uTIeKpPqvcqM_w9bT3WZlfLYBPEts3QsI0SmB3bNb8V8n7se9u1tedxGiazDgPgoyh980TbGcmDwqfteu4-D6DuQb4JtifOtz9Tz0RkuFMjPhrQMgNUFCiQ"/>
+</div>
+</nav>
+<!-- Desktop Side Navigation -->
+<aside class="bg-surface-container-low border-r border-outline-variant h-screen w-64 fixed left-0 top-0 flex-col p-md space-y-sm hidden md:flex z-40">
+<div class="flex items-center gap-md mb-xl p-sm">
+<img alt="Institution Logo" class="w-10 h-10 rounded object-cover" data-alt="A minimalist institution logo. Modern, academic, clean design, navy and teal colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy6NXPeDPEgY-xOjJ6p13g0Sh3DeV-TBnvMtWD0OjnvA99KegQzsSeJFw16-UPt9xN7KCHUwjNgj4-WNm6egxbDsGpJ4Cj7hgyZKoPekf6rYIORmelzofTBcpklZAf3PefG_a1ZTTScujqsTYNCQsJBffYdK1MyYMeiw8XWfS_lrI3I0nV4n2cwH79dU3Y1ZKtGto16qtMf1pwp-YCIShSVMe9i2Ex7-AMrWHfqZSMxQMid_OTkN0crg"/>
+<div>
+<div class="font-headline-md text-headline-md font-bold text-primary leading-tight">RAPPOR Edu</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Teacher Portal</div>
+</div>
+</div>
+<nav class="flex-1 space-y-sm">
+<a class="flex items-center gap-md px-lg py-md text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-md px-lg py-md text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span> Calendar
+            </a>
+<a class="flex items-center gap-md px-lg py-md text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span> Courses
+            </a>
+<a class="flex items-center gap-md px-lg py-md text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="quiz">quiz</span> Exams
+            </a>
+<a class="flex items-center gap-md px-lg py-md bg-secondary-fixed text-on-secondary-container rounded-lg font-bold font-label-md text-label-md active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span> Finance
+            </a>
+</nav>
+<div class="mt-auto space-y-sm pt-md border-t border-outline-variant">
+<button class="w-full py-md px-lg bg-tertiary text-on-tertiary rounded-lg font-button text-button hover:opacity-90 transition-opacity">Create New Course</button>
+<a class="flex items-center gap-md px-lg py-md text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span> Help Center
+            </a>
+<a class="flex items-center gap-md px-lg py-md text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span> Logout
+            </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 p-md md:p-gutter max-w-container-max mx-auto w-full">
+<header class="mb-lg flex flex-col md:flex-row justify-between items-start md:items-end gap-md">
+<div>
+<h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary font-bold">Yoklama ve Finans</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-sm">Salı, 24 Ekim - Matematik 101 İleri Seviye</p>
+</div>
+<div class="flex gap-sm">
+<button class="px-md py-sm border border-outline rounded-lg flex items-center gap-sm font-button text-button hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span> Önceki Ders
+                </button>
+<button class="px-md py-sm border border-outline rounded-lg flex items-center gap-sm font-button text-button hover:bg-surface-container-low transition-colors">
+                    Sonraki Ders <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</header>
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-lg">
+<!-- Left Column: Student List -->
+<div class="xl:col-span-2 space-y-md">
+<div class="bg-surface-container-lowest rounded-xl p-md md:p-lg custom-shadow border border-outline-variant">
+<div class="flex justify-between items-center mb-md pb-sm border-b border-outline-variant">
+<h2 class="font-headline-md text-headline-md text-primary font-bold">Öğrenci Listesi</h2>
+<span class="bg-primary-fixed text-on-primary-fixed px-sm py-xs rounded-full font-label-md text-label-md">12 Kayıtlı</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant text-on-surface-variant font-label-md text-label-md">
+<th class="py-md pl-sm font-semibold">Öğrenci</th>
+<th class="py-md text-center font-semibold">Yoklama (Katıldı)</th>
+<th class="py-md font-semibold">Ödeme Durumu</th>
+<th class="py-md text-right pr-sm font-semibold">İşlem</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Student Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-md pl-sm flex items-center gap-md">
+<img alt="Student" class="w-10 h-10 rounded-full object-cover" data-alt="Small avatar of a female student, professional yet approachable, light background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCF1eqlrwdnI8hWfFO5KzaKlcK4aEgRoCj2mYF0oUXHRZroXvlLmaA1hG24rltXpDIiCU09nxAkB8iFkSQuPWgElv4CKwPEzXQaCtKfprjhXmG9PXbYQvkKGy7htTfyTQV-T5sZWsHFGRlycE_voIxaAtHbcIBsmTutQ-URJDBQZX9-DtJTgKC4Ps51NT5ijJGkchWdyhf2V0XfYkksU5uWH--g9_2F2WxIPKxa8ddPuB6IfhG_KpBgtw"/>
+<span class="font-body-md text-body-md font-semibold text-primary">Ayşe Yılmaz</span>
+</td>
+<td class="py-md text-center">
+<input checked="" class="checkbox-custom cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-md">
+<span class="inline-flex items-center gap-xs px-sm py-xs rounded-full bg-tertiary-fixed-dim bg-opacity-20 text-on-tertiary-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle">check_circle</span> Ödendi
+                                        </span>
+</td>
+<td class="py-md text-right pr-sm">
+<button class="text-secondary font-button text-button hover:underline disabled:opacity-50" disabled="">Borç Kapat</button>
+</td>
+</tr>
+<!-- Student Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-md pl-sm flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-bold">MB</div>
+<span class="font-body-md text-body-md font-semibold text-primary">Mehmet Bozkurt</span>
+</td>
+<td class="py-md text-center">
+<input checked="" class="checkbox-custom cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-md">
+<span class="inline-flex items-center gap-xs px-sm py-xs rounded-full bg-error-container text-on-error-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]" data-icon="error">error</span> Bekliyor (₺250)
+                                        </span>
+</td>
+<td class="py-md text-right pr-sm">
+<button class="bg-primary text-on-primary px-sm py-xs rounded font-button text-button hover:bg-opacity-90 transition-opacity">Borç Kapat</button>
+</td>
+</tr>
+<!-- Student Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-md pl-sm flex items-center gap-md">
+<img alt="Student" class="w-10 h-10 rounded-full object-cover" data-alt="Small avatar of a male student, casual, light background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDOb8ydpGt6lxJrxbOe8DPxE4TncxO9JkYu2YCrE8Bkx9w5mudDld-8pxf6PQUJ-CFSpv3AG_618DzGFrupokCFoaPB8VUysY-MTngXkItOGXNfF4lBMzUpMPPfzNBwNkc6AeBz5KHakfGOZVnIIaiBbjTLq-1AU_DH-N6krO_ORjyH9wFwG_Mo8kL6H-aNhX7BMULwkgvWXrGs4nWkFSZJmwR83kKraa-hNol2q-y2dPh39Sph2O-zQ"/>
+<span class="font-body-md text-body-md font-semibold text-primary">Can Demir</span>
+</td>
+<td class="py-md text-center">
+<input class="checkbox-custom cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-md">
+<span class="inline-flex items-center gap-xs px-sm py-xs rounded-full bg-error-container text-on-error-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]" data-icon="error">error</span> Bekliyor (₺250)
+                                        </span>
+</td>
+<td class="py-md text-right pr-sm">
+<button class="bg-primary text-on-primary px-sm py-xs rounded font-button text-button hover:bg-opacity-90 transition-opacity">Borç Kapat</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Right Column: Finance Summary -->
+<div class="space-y-lg">
+<!-- Summary Card -->
+<div class="bg-primary text-on-primary rounded-xl p-lg custom-shadow relative overflow-hidden">
+<div class="absolute -right-10 -top-10 opacity-10">
+<span class="material-symbols-outlined text-[120px]" data-icon="account_balance">account_balance</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold mb-md relative z-10">Finansal Özet</h3>
+<p class="font-body-sm text-body-sm text-outline-variant mb-lg relative z-10">Matematik 101 İleri Seviye - 24 Ekim</p>
+<div class="space-y-md relative z-10">
+<div class="flex justify-between items-center border-b border-on-primary-fixed-variant pb-sm">
+<span class="font-body-md text-body-md opacity-80">Beklenen Toplam</span>
+<span class="font-headline-md text-headline-md font-bold">₺3,000</span>
+</div>
+<div class="flex justify-between items-center border-b border-on-primary-fixed-variant pb-sm">
+<span class="font-body-md text-body-md opacity-80">Tahsil Edilen</span>
+<span class="font-headline-md text-headline-md font-bold text-tertiary-fixed-dim">₺2,500</span>
+</div>
+<div class="flex justify-between items-center pt-sm">
+<span class="font-body-md text-body-md opacity-80">Kalan Alacak</span>
+<span class="font-headline-md text-headline-md font-bold text-error-container">₺500</span>
+</div>
+</div>
+<button class="w-full mt-lg py-md bg-secondary text-on-secondary rounded-lg font-button text-button hover:bg-opacity-90 transition-opacity flex items-center justify-center gap-sm relative z-10">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span> Rapor Oluştur
+                    </button>
+</div>
+<!-- Info Card -->
+<div class="bg-surface-container-low rounded-xl p-md border border-outline-variant">
+<h4 class="font-label-md text-label-md font-bold text-primary mb-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]" data-icon="info">info</span> Anlık Fiyatlandırma
+                    </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ödeme durumları, öğrencinin derse kayıt olduğu andaki snapshot (anlık) fiyat üzerinden hesaplanmaktadır. Güncel fiyat değişiklikleri geçmiş dersleri etkilemez.</p>
+</div>
+</div>
+</div>
+</main>
+</body></html>

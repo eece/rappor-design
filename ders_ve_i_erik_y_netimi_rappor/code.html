@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html class="light" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduPro Academy - Kurs ve İçerik Yönetimi</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#2e3132",
+                        "primary-fixed-dim": "#aec7f6",
+                        "error": "#ba1a1a",
+                        "background": "#f8f9fa",
+                        "on-tertiary-container": "#009a89",
+                        "primary-fixed": "#d6e3ff",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-secondary-fixed-variant": "#004491",
+                        "primary": "#000a1e",
+                        "outline-variant": "#c4c6cf",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-tint": "#465f88",
+                        "on-primary-fixed": "#001b3d",
+                        "outline": "#74777f",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "surface": "#f8f9fa",
+                        "surface-variant": "#e1e3e4",
+                        "on-secondary-fixed": "#001a40",
+                        "surface-container-low": "#f3f4f5",
+                        "secondary": "#115cb9",
+                        "tertiary-fixed-dim": "#59dbc7",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "on-surface-variant": "#44474e",
+                        "on-primary-container": "#708ab5",
+                        "on-secondary-container": "#003370",
+                        "on-tertiary-fixed": "#00201c",
+                        "on-tertiary-fixed-variant": "#005047",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#d7e2ff",
+                        "secondary-container": "#659dfe",
+                        "surface-dim": "#d9dadb",
+                        "surface-container": "#edeeef",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#79f7e3",
+                        "secondary-fixed-dim": "#acc7ff",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-bright": "#f8f9fa",
+                        "tertiary": "#000e0b",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#002722",
+                        "primary-container": "#002147",
+                        "inverse-primary": "#aec7f6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "xxl": "48px",
+                        "sm": "8px",
+                        "unit": "8px",
+                        "container-max": "1200px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "button": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "button": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.filled { font-variation-settings: 'FILL' 1; }
+        
+        /* Custom scrollbar for markdown editor */
+        .markdown-editor::-webkit-scrollbar {
+            width: 8px;
+        }
+        .markdown-editor::-webkit-scrollbar-track {
+            background: theme('colors.surface-container-low');
+        }
+        .markdown-editor::-webkit-scrollbar-thumb {
+            background-color: theme('colors.outline-variant');
+            border-radius: theme('borderRadius.full');
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col md:flex-row font-body-md">
+<!-- SideNavBar (Desktop) -->
+<aside class="hidden md:flex h-screen w-64 fixed left-0 top-0 bg-surface-container-low dark:bg-on-background border-r border-outline-variant dark:border-outline flex-col p-md space-y-sm z-20">
+<!-- Header -->
+<div class="flex items-center gap-sm mb-lg px-sm">
+<img alt="Institution Logo" class="w-10 h-10 rounded-full object-cover shadow-sm border border-outline-variant" data-alt="A clean, modern institutional logo icon featuring a stylized open book or abstract academic pillar in navy blue and teal, suitable for a professional teacher portal. Soft lighting, corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5GwAwBD2wPjxhWM46Zj0pj1CWsHssNjFzz6PNIvhQqyGEgEOvIi_ag1SFsnGCx_BJ27fFGzU0tFz_XLQYM4ZgBIfmqPR5OghUESM8XKNLf6nAKktguczzQWNu_B5FmtFZiWvHFIIijaFdyp8cbXmzkhztWRP8qEwCo-3Vmc8KtkvaZK9vrBqNywUTUhmCXqLUNSNJ4s2K5k_pAn_6oDudM1idVuubzDJxPgZDn843Ow_kaOXTBxIJkQ"/>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">RAPPOR Edu</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Teacher Portal</p>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<nav class="flex-1 space-y-sm">
+<a class="flex items-center gap-md px-lg py-md text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-lg py-md text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-label-md text-label-md">Calendar</span>
+</a>
+<!-- Active Tab: Courses -->
+<a class="flex items-center gap-md px-lg py-md bg-secondary-fixed dark:bg-secondary-container text-on-secondary-container dark:text-on-secondary rounded-lg font-bold transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined filled" data-icon="school">school</span>
+<span class="font-label-md text-label-md">Courses</span>
+</a>
+<a class="flex items-center gap-md px-lg py-md text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="quiz">quiz</span>
+<span class="font-label-md text-label-md">Exams</span>
+</a>
+<a class="flex items-center gap-md px-lg py-md text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">Finance</span>
+</a>
+</nav>
+<!-- CTA -->
+<button class="w-full bg-tertiary-container text-on-tertiary-container font-button text-button py-sm px-md rounded-lg shadow-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined">add</span> Create New Course
+        </button>
+<!-- Footer Tabs -->
+<div class="mt-auto border-t border-outline-variant pt-sm">
+<a class="flex items-center gap-md px-lg py-md text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+<a class="flex items-center gap-md px-lg py-md text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high dark:hover:bg-surface-variant rounded-lg transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 flex flex-col h-screen overflow-hidden">
+<!-- TopNavBar (Web & Mobile) -->
+<header class="flex justify-between items-center px-lg py-sm w-full bg-surface-container-lowest dark:bg-inverse-surface w-full top-0 sticky border-b border-outline-variant dark:border-outline shadow-sm z-10">
+<!-- Mobile Brand/Menu -->
+<div class="flex items-center gap-sm md:hidden">
+<button class="text-on-surface-variant hover:bg-surface-container-low p-xs rounded-full cursor-pointer active:opacity-80 transition-all">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">EduPro Academy</span>
+</div>
+<!-- Desktop Brand (Hidden on Mobile as SideNav has it, but JSON implies it here too, keeping consistent with JSON) -->
+<div class="hidden md:block">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">EduPro Academy</span>
+</div>
+<!-- Search (Left/Center) -->
+<div class="hidden md:flex flex-1 max-w-md ml-lg relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant text-on-surface-variant font-body-md text-body-md rounded-lg py-sm pl-xl pr-sm focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" placeholder="Kurs, içerik veya öğrenci ara..." type="text"/>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-sm ml-auto">
+<button class="text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors p-sm rounded-full cursor-pointer active:opacity-80 transition-all relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors p-sm rounded-full cursor-pointer active:opacity-80 transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<img alt="Teacher Profile Avatar" class="w-8 h-8 rounded-full ml-sm object-cover border border-outline-variant cursor-pointer active:opacity-80 transition-all" data-alt="A professional headshot of a teacher smiling slightly, looking directly at the camera. Soft studio lighting, neutral grey background, high resolution, corporate modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTSbUsKzAOWKj54fmorX7HWa-ruGwvcIlPDnbhlGA6eDiHcqooxG2u7KYcfn7iJXoLwjpCwcSjU9LEw7wLwupLITU_HBmm9RFrxmz4EXPDNyuFpdggOq2v0qvGtY0oDzIbqOKXjyiM9-jWL95bdpBJ_eYH5KL1hf7KPVhwkyWQXy7bBDwoZm_dpDjKg596JxuR37xxvVLr2fiaVKJmMZG5tJMAiWO8FOzbZ4Z0687mAFAHORaK3rlCRQ"/>
+</div>
+</header>
+<!-- Page Content: Split View -->
+<div class="flex-1 flex flex-col md:flex-row overflow-hidden bg-background">
+<!-- Left Pane: Course List -->
+<section class="w-full md:w-1/3 lg:w-1/4 border-r border-outline-variant bg-surface flex flex-col overflow-y-auto">
+<div class="p-lg border-b border-outline-variant bg-surface-container-lowest sticky top-0 z-10">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Atanan Kurslarım</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Düzenlemek için bir kurs seçin</p>
+</div>
+<div class="p-sm space-y-xs">
+<!-- Active Course Item -->
+<div class="bg-primary-fixed/20 border border-secondary rounded-lg p-md cursor-pointer transition-all shadow-[0px_4px_20px_rgba(0,33,71,0.08)]">
+<div class="flex justify-between items-start mb-sm">
+<span class="bg-tertiary-container/10 text-on-tertiary-container text-[10px] font-label-md uppercase px-2 py-1 rounded-full">Aktif Dönem</span>
+<span class="material-symbols-outlined text-secondary text-sm">more_vert</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary-container text-lg">İleri Algoritma ve Veri Yapıları</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs line-clamp-2">Bilgisayar mühendisliği 3. sınıf zorunlu dersi.</p>
+<div class="mt-md flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">group</span>
+<span class="font-label-md text-label-md text-xs">42 Öğrenci</span>
+</div>
+</div>
+<!-- Inactive Course Items -->
+<div class="bg-surface-container-lowest border border-outline-variant hover:border-outline rounded-lg p-md cursor-pointer transition-all hover:shadow-[0px_4px_20px_rgba(0,33,71,0.04)]">
+<div class="flex justify-between items-start mb-sm">
+<span class="bg-surface-dim text-on-surface-variant text-[10px] font-label-md uppercase px-2 py-1 rounded-full">Taslak</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface text-lg">Web Geliştirme Temelleri</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs line-clamp-2">HTML, CSS ve temel JavaScript pratikleri.</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant hover:border-outline rounded-lg p-md cursor-pointer transition-all hover:shadow-[0px_4px_20px_rgba(0,33,71,0.04)]">
+<div class="flex justify-between items-start mb-sm">
+<span class="bg-tertiary-container/10 text-on-tertiary-container text-[10px] font-label-md uppercase px-2 py-1 rounded-full">Aktif Dönem</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface text-lg">Mobil Uygulama Mimarisi</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs line-clamp-2">iOS ve Android için modern geliştirme yaklaşımları.</p>
+</div>
+</div>
+</section>
+<!-- Right Pane: Course Detail & Content Management (Bento-like grid) -->
+<section class="flex-1 bg-background overflow-y-auto p-md md:p-lg lg:p-xxl">
+<!-- Course Header -->
+<div class="mb-xl flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<div class="flex items-center gap-sm text-on-surface-variant mb-xs">
+<span class="font-label-md text-label-md">Bilgisayar Mühendisliği</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="font-label-md text-label-md">CS301</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-primary-container">İleri Algoritma ve Veri Yapıları</h1>
+</div>
+<div class="flex gap-sm">
+<button class="bg-surface-container-lowest border border-outline-variant text-on-surface font-button text-button py-xs px-md rounded-lg shadow-sm hover:bg-surface-container-low transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined">visibility</span> Önizle
+                        </button>
+<button class="bg-primary text-on-primary font-button text-button py-xs px-md rounded-lg shadow-sm hover:bg-primary-container transition-colors">
+                            Yayınla
+                        </button>
+</div>
+</div>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Modules/Topics List (Left Column) -->
+<div class="lg:col-span-1 space-y-md">
+<div class="flex justify-between items-center mb-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface text-xl">Modüller (Haftalık)</h2>
+<button class="text-secondary hover:bg-secondary-fixed/50 p-xs rounded-full transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<!-- Repeater List -->
+<div class="divide-y divide-outline-variant">
+<!-- Active Module -->
+<div class="p-md bg-secondary-fixed/10 border-l-4 border-secondary cursor-pointer">
+<div class="flex justify-between items-center">
+<h4 class="font-label-md text-label-md text-on-surface">Hafta 1: Kaba Kuvvet (Brute Force) Yaklaşımları</h4>
+<span class="material-symbols-outlined text-outline">drag_indicator</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Tanım, analiz ve temel örnekler.</p>
+</div>
+<!-- Inactive Modules -->
+<div class="p-md hover:bg-surface-container-low cursor-pointer transition-colors border-l-4 border-transparent">
+<div class="flex justify-between items-center">
+<h4 class="font-label-md text-label-md text-on-surface">Hafta 2: Böl ve Fethet (Divide &amp; Conquer)</h4>
+<span class="material-symbols-outlined text-outline">drag_indicator</span>
+</div>
+</div>
+<div class="p-md hover:bg-surface-container-low cursor-pointer transition-colors border-l-4 border-transparent">
+<div class="flex justify-between items-center">
+<h4 class="font-label-md text-label-md text-on-surface">Hafta 3: Dinamik Programlama Temelleri</h4>
+<span class="material-symbols-outlined text-outline">drag_indicator</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Editor & Materials (Right Column, Span 2) -->
+<div class="lg:col-span-2 space-y-lg">
+<!-- Markdown Editor Container -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-[0px_4px_20px_rgba(0,33,71,0.08)] flex flex-col h-[500px]">
+<!-- Editor Toolbar -->
+<div class="flex items-center gap-xs p-sm border-b border-outline-variant bg-surface-container-low rounded-t-xl">
+<button class="p-xs text-on-surface-variant hover:bg-surface-container-high rounded transition-colors"><span class="material-symbols-outlined text-sm">format_bold</span></button>
+<button class="p-xs text-on-surface-variant hover:bg-surface-container-high rounded transition-colors"><span class="material-symbols-outlined text-sm">format_italic</span></button>
+<div class="w-px h-4 bg-outline-variant mx-xs"></div>
+<button class="p-xs text-on-surface-variant hover:bg-surface-container-high rounded transition-colors"><span class="material-symbols-outlined text-sm">format_list_bulleted</span></button>
+<button class="p-xs text-on-surface-variant hover:bg-surface-container-high rounded transition-colors"><span class="material-symbols-outlined text-sm">format_list_numbered</span></button>
+<div class="w-px h-4 bg-outline-variant mx-xs"></div>
+<button class="p-xs text-on-surface-variant hover:bg-surface-container-high rounded transition-colors"><span class="material-symbols-outlined text-sm">link</span></button>
+<button class="p-xs text-on-surface-variant hover:bg-surface-container-high rounded transition-colors"><span class="material-symbols-outlined text-sm">image</span></button>
+<div class="ml-auto flex items-center gap-sm">
+<span class="font-body-sm text-body-sm text-outline-variant text-xs">Otomatik kaydedildi: 14:32</span>
+</div>
+</div>
+<!-- Editor Area -->
+<textarea class="markdown-editor flex-1 w-full p-md font-body-md text-body-md text-on-surface bg-transparent border-none resize-none focus:ring-0 outline-none" placeholder="Ders notlarını buraya Markdown formatında yazın..."># Hafta 1: Kaba Kuvvet (Brute Force) Yaklaşımları
+
+Kaba kuvvet algoritması, bir problemin çözümü için olası tüm durumların sistematik olarak denenmesine dayanan, doğrudan ve genellikle en basit yaklaşım biçimidir. 
+
+## Avantajları
+* **Uygulaması kolaydır:** Genellikle problemin doğrudan bir çevirisidir.
+* **Küçük girdiler için uygundur:** Performansın kritik olmadığı durumlarda hızlıca sonuç verir.
+* **Referans noktasıdır:** Daha karmaşık ve optimize edilmiş algoritmaların doğruluğunu test etmek için iyi bir standart sağlar.
+
+## Örnek: Doğrusal Arama (Linear Search)
+Bir dizi içerisinde belirli bir elemanı aramak için en basit kaba kuvvet yöntemi doğrusal aramadır.
+                            </textarea>
+</div>
+<!-- External Materials Section (Bento Card) -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm p-lg">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-md text-headline-md text-on-surface text-lg">Dış Kaynaklar ve Materyaller</h3>
+</div>
+<!-- Add New Material Form -->
+<div class="flex flex-col md:flex-row gap-sm mb-lg bg-surface p-md rounded-lg border border-outline-variant/50">
+<div class="flex-1">
+<label class="block font-label-md text-label-md text-on-surface-variant text-xs mb-xs">Kaynak Adı</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant text-on-surface rounded-md py-xs px-sm focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all text-sm" placeholder="Örn: MIT OpenCourseWare Lecture" type="text"/>
+</div>
+<div class="flex-1">
+<label class="block font-label-md text-label-md text-on-surface-variant text-xs mb-xs">URL Bağlantısı</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant text-on-surface rounded-md py-xs px-sm focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all text-sm" placeholder="https://..." type="url"/>
+</div>
+<div class="flex items-end">
+<button class="bg-tertiary-container text-on-tertiary-container font-button text-button py-xs px-md rounded-md shadow-sm hover:opacity-90 transition-opacity whitespace-nowrap h-[34px]">
+                                        Ekle
+                                    </button>
+</div>
+</div>
+<!-- Attached Materials List -->
+<div class="space-y-sm">
+<div class="flex items-center justify-between p-sm border border-outline-variant rounded-lg bg-surface-container-lowest hover:border-secondary/50 transition-colors group">
+<div class="flex items-center gap-md">
+<div class="bg-primary-fixed/20 p-sm rounded-md text-primary-container">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Algorithm Design Manual - Chapter 2</p>
+<a class="font-body-sm text-body-sm text-secondary hover:underline text-xs flex items-center gap-1" href="#">
+<span>springer.com/alg-design</span>
+<span class="material-symbols-outlined text-[12px]">open_in_new</span>
+</a>
+</div>
+</div>
+<button class="text-outline hover:text-error transition-colors p-xs rounded-full group-hover:bg-error-container/20">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+<div class="flex items-center justify-between p-sm border border-outline-variant rounded-lg bg-surface-container-lowest hover:border-secondary/50 transition-colors group">
+<div class="flex items-center gap-md">
+<div class="bg-tertiary-container/10 p-sm rounded-md text-on-tertiary-container">
+<span class="material-symbols-outlined text-[20px]">play_circle</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Brute Force Algoritmaları Analizi Video Lecture</p>
+<a class="font-body-sm text-body-sm text-secondary hover:underline text-xs flex items-center gap-1" href="#">
+<span>youtube.com/watch?v=...</span>
+<span class="material-symbols-outlined text-[12px]">open_in_new</span>
+</a>
+</div>
+</div>
+<button class="text-outline hover:text-error transition-colors p-xs rounded-full group-hover:bg-error-container/20">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RAPPOR - Kayıt Ol</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-background": "#191c1d",
+                      "primary-fixed": "#d6e3ff",
+                      "surface-container-low": "#f3f4f5",
+                      "on-tertiary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-surface": "#191c1d",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed": "#d7e2ff",
+                      "on-tertiary-fixed": "#00201c",
+                      "tertiary-fixed": "#79f7e3",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-high": "#e7e8e9",
+                      "surface-variant": "#e1e3e4",
+                      "tertiary-container": "#002722",
+                      "surface-bright": "#f8f9fa",
+                      "on-primary-fixed-variant": "#2d476f",
+                      "surface-dim": "#d9dadb",
+                      "on-secondary-fixed-variant": "#004491",
+                      "background": "#f8f9fa",
+                      "outline-variant": "#c4c6cf",
+                      "primary-fixed-dim": "#aec7f6",
+                      "on-primary-fixed": "#001b3d",
+                      "inverse-surface": "#2e3132",
+                      "surface-container": "#edeeef",
+                      "secondary-container": "#659dfe",
+                      "on-tertiary-container": "#009a89",
+                      "inverse-on-surface": "#f0f1f2",
+                      "on-secondary-fixed": "#001a40",
+                      "primary": "#000a1e",
+                      "surface": "#f8f9fa",
+                      "secondary": "#115cb9",
+                      "on-error-container": "#93000a",
+                      "on-surface-variant": "#44474e",
+                      "on-primary-container": "#708ab5",
+                      "error-container": "#ffdad6",
+                      "on-secondary": "#ffffff",
+                      "surface-container-highest": "#e1e3e4",
+                      "secondary-fixed-dim": "#acc7ff",
+                      "surface-tint": "#465f88",
+                      "inverse-primary": "#aec7f6",
+                      "error": "#ba1a1a",
+                      "tertiary": "#000e0b",
+                      "outline": "#74777f",
+                      "on-tertiary-fixed-variant": "#005047",
+                      "tertiary-fixed-dim": "#59dbc7",
+                      "primary-container": "#002147",
+                      "on-secondary-container": "#003370"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xxl": "48px",
+                      "gutter": "24px",
+                      "unit": "8px",
+                      "xs": "4px",
+                      "lg": "24px",
+                      "sm": "8px",
+                      "xl": "32px",
+                      "container-max": "1200px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "headline-xl": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "button": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-xl": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "button": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .role-btn {
+                @apply flex flex-col items-center justify-center p-lg bg-surface-container-lowest border border-outline-variant rounded-lg cursor-pointer transition-all duration-200 hover:border-secondary hover:shadow-sm;
+            }
+            .role-btn.active {
+                @apply border-2 border-secondary bg-surface-container-low shadow-sm;
+            }
+            .input-field {
+                @apply w-full px-4 py-3 rounded-lg border border-outline-variant bg-surface-container-lowest focus:ring-2 focus:ring-secondary focus:border-secondary transition-all outline-none font-body-md text-body-md text-on-surface placeholder-on-surface-variant;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background min-h-screen flex flex-col items-center justify-center font-body-md antialiased text-on-surface p-md">
+<main class="w-full max-w-[480px] mx-auto">
+<!-- Card Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(0,10,30,0.08)] p-xl border border-surface-container-low">
+<!-- Header & Logo -->
+<div class="flex flex-col items-center mb-xl">
+<img alt="RAPPOR Education Platform Logo" class="h-20 mb-sm object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATBcj7vxtMtemaqRSPRf14y3ji3dHqN2LFwvzfcG-HpdSdKargsywuB7OwCqhoybPqUtq_Mhsb0vHMctJl1SIBbzeJ8tfLsyt3Y5O4-baZs_ATiCuS8EKTvzzTia4yr3xpKBIydbaSi8RuScvTlDLLNsfgn9h9rM7ip2cFeXJcscrKU55BbwWSXD9Q8GnZq-KrH8ZWUHqPPJyW0ukruosx66BGkBvYNCtRYlpAj81kzQbEmi4s-bU3ug"/>
+<h1 class="font-headline-md text-headline-md text-primary text-center">Hesap Oluştur</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-center mt-xs">Eğitim yolculuğunuza başlamak için kayıt olun.</p>
+</div>
+<!-- Registration Form -->
+<form class="space-y-lg flex flex-col" id="registrationForm">
+<!-- Role Selection -->
+<div class="space-y-sm">
+<label class="font-label-md text-label-md text-on-surface block mb-unit">Hesap Türünüzü Seçin</label>
+<div class="grid grid-cols-3 gap-sm">
+<label class="role-btn active" id="role-ogretmen">
+<input checked="" class="hidden" name="role" type="radio" value="ogretmen"/>
+<span class="material-symbols-outlined text-secondary text-3xl mb-xs" data-icon="school" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-button text-button text-on-surface">Öğretmen</span>
+</label>
+<label class="role-btn" id="role-ogrenci">
+<input class="hidden" name="role" type="radio" value="ogrenci"/>
+<span class="material-symbols-outlined text-on-surface-variant text-3xl mb-xs transition-colors group-hover:text-secondary" data-icon="face">face</span>
+<span class="font-button text-button text-on-surface">Öğrenci</span>
+</label>
+<label class="role-btn" id="role-veli">
+<input class="hidden" name="role" type="radio" value="veli"/>
+<span class="material-symbols-outlined text-on-surface-variant text-3xl mb-xs transition-colors group-hover:text-secondary" data-icon="family_home">family_home</span>
+<span class="font-button text-button text-on-surface">Veli</span>
+</label>
+</div>
+</div>
+<!-- Form Fields -->
+<div class="space-y-md">
+<div>
+<label class="sr-only" for="fullName">Ad Soyad</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="person">person</span>
+</div>
+<input class="input-field pl-10" id="fullName" name="fullName" placeholder="Ad Soyad" required="" type="text"/>
+</div>
+</div>
+<div>
+<label class="sr-only" for="email">E-posta Adresi</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="mail">mail</span>
+</div>
+<input class="input-field pl-10" id="email" name="email" placeholder="E-posta Adresi" required="" type="email"/>
+</div>
+</div>
+<div>
+<label class="sr-only" for="password">Şifre</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="lock">lock</span>
+</div>
+<input class="input-field pl-10" id="password" name="password" placeholder="Şifre" required="" type="password"/>
+</div>
+</div>
+</div>
+<!-- Terms and Conditions -->
+<div class="flex items-start">
+<div class="flex items-center h-5">
+<input class="focus:ring-secondary h-4 w-4 text-secondary border-outline-variant rounded" id="terms" name="terms" required="" type="checkbox"/>
+</div>
+<div class="ml-3 text-sm">
+<label class="font-body-sm text-body-sm text-on-surface-variant" for="terms">
+                            Kayıt olarak <a class="text-secondary hover:underline font-bold" href="#">Kullanım Koşulları</a>'nı ve <a class="text-secondary hover:underline font-bold" href="#">Gizlilik Politikası</a>'nı kabul ediyorum.
+                        </label>
+</div>
+</div>
+<!-- Submit Button -->
+<button class="w-full bg-primary text-on-primary font-button text-button py-3 px-4 rounded-lg hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors shadow-sm" type="submit">
+                    Kayıt Ol
+                </button>
+<div class="text-center mt-md">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                        Zaten hesabınız var mı? <a class="text-secondary font-bold hover:underline" href="#">Giriş Yap</a>
+</p>
+</div>
+</form>
+</div>
+</main>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const roleButtons = document.querySelectorAll('.role-btn');
+            
+            roleButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class and reset icons for all
+                    roleButtons.forEach(b => {
+                        b.classList.remove('active');
+                        const icon = b.querySelector('.material-symbols-outlined');
+                        icon.classList.remove('text-secondary');
+                        icon.classList.add('text-on-surface-variant');
+                        icon.style.fontVariationSettings = "'FILL' 0";
+                    });
+
+                    // Add active class and highlight icon for clicked
+                    this.classList.add('active');
+                    const activeIcon = this.querySelector('.material-symbols-outlined');
+                    activeIcon.classList.remove('text-on-surface-variant');
+                    activeIcon.classList.add('text-secondary');
+                    activeIcon.style.fontVariationSettings = "'FILL' 1";
+                });
+            });
+        });
+    </script>
+</body></html>
